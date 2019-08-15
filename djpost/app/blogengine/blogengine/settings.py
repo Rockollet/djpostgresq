@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'myblog_db',
         'USER': 'roberto',
         'PASSWORD': 'amahasla',
-        'HOST': 'LOCALHOST',
+        'HOST': os.environ.get('PG_CONNECTION_PROD') if os.environ.get('PG_CONNECTION_PROD') is not None else 'LOCALHOST',
         'PORT': '5432',
     }
 }
