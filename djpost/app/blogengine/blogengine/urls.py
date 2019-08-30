@@ -21,6 +21,7 @@ from .views import redirect_blog
 
 urlpatterns = [
     path('', redirect_blog),
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls'))
 ]

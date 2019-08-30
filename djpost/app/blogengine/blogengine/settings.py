@@ -25,12 +25,13 @@ SECRET_KEY = 'f12vig@&z^hn6^m18r9x(ou=fj08aj(v9)1u=3n6i4r#%1l(qd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [rocko.dmitriyq.ru]
+ALLOWED_HOSTS = ['rocko.dmitriyq.ru','*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,6 +62,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.request',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
