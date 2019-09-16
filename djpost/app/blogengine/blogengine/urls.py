@@ -19,6 +19,8 @@ from django.urls import include
 from .views import redirect_blog
 
 
+
+
 urlpatterns = [
     path('', redirect_blog),
     path('grappelli/', include('grappelli.urls')),
