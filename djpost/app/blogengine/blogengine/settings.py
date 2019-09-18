@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import socket
 
+DB_CONNECTION_STRING = ''
+if os.environ.get('PG_CONNECTION_PROD') is not None:
+    DEBUG = TEMPLATE_DEBUG = False
+    DB_CONNECTION_STRING = os.environ.get('PG_CONNECTION_PROD')
+else:
+    DEBUG = TEMPLATE_DEBUG = True
+    DB_CONNECTION_STRING = 'LOCALHOST'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,13 +33,7 @@ SECRET_KEY = 'f12vig@&z^hn6^m18r9x(ou=fj08aj(v9)1u=3n6i4r#%1l(qd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-if socket.gethostname() == '127.0.0.1:5000':
-    DEBUG = TEMPLATE_DEBUG = True
-else:
-    DEBUG = TEMPLATE_DEBUG = False
-
 ALLOWED_HOSTS = ['jetblogit.ru', '127.0.0.1']
-
 
 # Application definition
 
@@ -90,7 +91,7 @@ DATABASES = {
         'NAME': 'myblog_db',
         'USER': 'roberto',
         'PASSWORD': 'amahasla',
-        'HOST': os.environ.get('PG_CONNECTION_PROD') if os.environ.get('PG_CONNECTION_PROD') is not None else 'LOCALHOST',
+        'HOST': DB_CONNECTION_STRING,
         'PORT': '5432',
     }
 }
