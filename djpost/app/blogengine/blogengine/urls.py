@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from .views import redirect_blog
-
-
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('', redirect_blog),
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
-]
+    path('blog/', include('blog.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
