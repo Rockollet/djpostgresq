@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import socket
 
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DB_CONNECTION_STRING = ''
+if os.environ.get('PG_CONNECTION_PROD') is not None:
+    DEBUG = TEMPLATE_DEBUG = False
+    DB_CONNECTION_STRING = os.environ.get('PG_CONNECTION_PROD')
+else:
+    DEBUG = TEMPLATE_DEBUG = True
+    DB_CONNECTION_STRING = 'LOCALHOST'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
