@@ -14,13 +14,7 @@ import os
 import socket
 
 
-DB_CONNECTION_STRING = ''
-if os.environ.get('PG_CONNECTION_PROD') is not None:
-    DEBUG = TEMPLATE_DEBUG = False
-    DB_CONNECTION_STRING = os.environ.get('PG_CONNECTION_PROD')
-else:
-    DEBUG = TEMPLATE_DEBUG = True
-    DB_CONNECTION_STRING = 'LOCALHOST'
+DEBUG = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
