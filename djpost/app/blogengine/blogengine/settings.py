@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import socket
+import logging
 
 DB_CONNECTION_STRING = ''
 if os.environ.get('PG_CONNECTION_PROD') is not None:
@@ -135,3 +136,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = '/media/'
+
+logging.disable(logging.CRITICAL)
