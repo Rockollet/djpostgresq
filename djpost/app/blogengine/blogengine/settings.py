@@ -139,7 +139,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = '/static/grappelli/'
+ADMIN_MEDIA_PREFIX = '/static/'
 
 PATH_ENVS = [PROJECT_ROOT, STATIC_ROOT, STATIC_URL, MEDIA_ROOT, MEDIA_URL]
 
