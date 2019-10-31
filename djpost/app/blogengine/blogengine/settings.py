@@ -18,7 +18,7 @@ import logging
 
 DB_CONNECTION_STRING = ''
 if os.environ.get('PG_CONNECTION_PROD') is not None:
-    DEBUG = TEMPLATE_DEBUG = False
+    DEBUG = TEMPLATE_DEBUG = True
     DB_CONNECTION_STRING = os.environ.get('PG_CONNECTION_PROD')
 else:
     DEBUG = TEMPLATE_DEBUG = True
