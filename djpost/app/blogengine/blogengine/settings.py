@@ -136,9 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-STATIC_URL = '/blogengine/static/'
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-MEDIA_URL = '/blogengine/media/'
+MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 PATH_ENVS = []
