@@ -139,6 +139,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/blogengine/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = '/blogengine/media/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 PATH_ENVS = []
 
