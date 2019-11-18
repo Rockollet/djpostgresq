@@ -1,6 +1,6 @@
 <div class="card mb-3">
    <div class="card-header" style="background-color: #F8F9FA">
-     {{ post.date_pub }}
+     {{ post.date_pub|date:"j F Y" }}
    </div>
    <div class="card-body">
      <h5 class="card-title">{{ post.title }}</h5>
