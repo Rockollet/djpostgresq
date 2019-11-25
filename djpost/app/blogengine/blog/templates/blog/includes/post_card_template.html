@@ -4,7 +4,7 @@
    </div>
    <div class="card-body">
      <h5 class="card-title">{{ post.title }}</h5>
-     <img src="{{ post.image.url }}">
+     <img src="{{ post.image.url }}" class="img-fluid" alt="Responsive image">
      <p></p>
      <p class="card-text">{{ post.body|truncatewords:41 }}</p>
      <a href="{{ post.get_absolute_url }}" class="btn btn-dark">Открыть</a>
