@@ -10,12 +10,12 @@ def gen_slug(s):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=150, db_index=True, verbose_name = 'Заголовок')
+    title = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, blank=True, unique=True)
-    body = models.TextField(blank=True, db_index=True, verbose_name = 'Тело поста')
-    tags = models.ManyToManyField('Tag', blank=True , related_name='posts', verbose_name = 'Теги')
-    date_pub = models.DateTimeField(auto_now_add=True, verbose_name = 'Опубликовано')
-    image = models.ImageField(upload_to='static/media', blank=True, verbose_name = 'Изображение')
+    body = models.TextField(blank=True, db_index=True)
+    tags = models.ManyToManyField('Tag', blank=True , related_name='posts')
+    date_pub = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='static/media', blank=True)
 
 
     def get_absolute_url(self):
@@ -36,10 +36,7 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Посты'
-        verbose_name = 'Пост'
         ordering = ['-date_pub']
-
 
 class Tag(models.Model):
     title = models.CharField(max_length=50)
